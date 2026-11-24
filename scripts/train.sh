@@ -19,7 +19,7 @@ python "$F5_DIR/src/f5_tts/train/datasets/prepare_csv_wavs.py" "$REPO/data/${DAT
 
 echo "== 2/2 Fine-tuning (checkpoints -> $F5_DIR/ckpts/$DATA_NAME)"
 cd "$F5_DIR"
-accelerate launch --mixed_precision=bf16 src/f5_tts/train/finetune_cli.py \
+accelerate launch --mixed_precision="$MIXED_PRECISION" src/f5_tts/train/finetune_cli.py \
   --exp_name F5TTS_v1_Base \
   --finetune \
   --dataset_name "$DATA_NAME" \

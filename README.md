@@ -7,6 +7,9 @@ Fine-tune [F5-TTS](https://github.com/SWivid/F5-TTS) v1 Base on recordings of on
 
 This repo holds code only. Voice data, checkpoints and generated audio are git-ignored on purpose.
 
+## Free option: Kaggle
+No GPU to pay for: train in a free Kaggle notebook instead of steps 2-4 below. See [kaggle/README.md](kaggle/README.md).
+
 ## What you need
 
 - A voice dataset in LJSpeech format: `metadata.csv` (`id|text|normalized_text`) plus `wavs/<id>.wav`. 30-90 minutes of clean speech from one speaker works well.
@@ -109,7 +112,8 @@ Any setting can be overridden per run: `EPOCHS=40 ./scripts/train.sh`.
 config.env                  settings
 scripts/setup_gpu.sh        install F5-TTS on the GPU machine
 scripts/prepare_dataset.py  LJSpeech -> F5-TTS CSV (absolute paths, optional exclude list)
-scripts/runpod_all.sh       setup + train + export in one go
+scripts/runpod_all.sh       setup + train + export in one go (rented GPU)
+kaggle/                     free training in a Kaggle notebook
 scripts/train.sh            prepare + fine-tune
 scripts/export.sh           checkpoint -> self-contained model folder (.tar.gz)
 scripts/speak.py            generate speech with the exported model (offline)
