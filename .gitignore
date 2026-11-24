@@ -1,0 +1,14 @@
+# Never commit voice data or models
+data/*
+!data/.gitkeep
+export/
+models/
+ref/
+out/
+*.wav
+*.flac
+*.pt
+*.safetensors
+*.tar.gz
+__pycache__/
+.DS_Store
